@@ -1,0 +1,165 @@
+.header {
+  background-color: transparent;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Variante isLoggedIn */
+.header_saved-news {
+     background-color: #1a1b22;
+    position: relative;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.header_container {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+
+.header__logo {
+  font-family: 'Roboto', sans-serif;
+  color: #1A1B22;
+  font-weight: 700;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.header_saved-news .header__logo {
+  color: #ffffff;
+}
+
+/* Navegación */
+.header__nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.header__nav-link {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #1a1b22;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.header__nav-link:hover {
+  opacity: 0.7;
+}
+
+.header_saved-news .header__nav-link {
+    color: black;
+}
+
+.header__nav-link_active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: #1a1b22;
+}
+.header_saved-news .header__nav-link_active::after {
+  background-color: #ffffff;
+}
+
+.header__nav-link:hover {
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+    opacity: 0.7;
+}
+
+/* Enlace activo */
+.header__nav-link.active {
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+}
+
+.header_saved-news .header__nav-link.active {
+  color: #ffffff;
+}
+
+.header__user-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  background: none;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #1a1b22;
+  transition: all 0.3s ease
+}
+
+.header__user-button:hover {
+  opacity: 0.8;
+}
+
+.header_saved-news .header__user-button {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.header__logout-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+/* Botones */
+
+.header__user-button,
+.header__login-button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 8px 22px;
+  border-radius: 40px;
+  border: 1px solid #1A1B22;
+  background: transparent;
+  color: #1A1B22;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.header_saved-news .header__user-button,
+.header_saved-news .header__login-button {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.header__login-button:hover,
+.header__user-button:hover {
+    background-color: rgba(26, 27, 34, 0.1);
+    opacity: 0.7;
+}
+
+/* Icono de logout */
+.header__logout-icon {
+  font-size: 18px;
+  transform: rotate(180deg);
+  line-height: 1;
+}

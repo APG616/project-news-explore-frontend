@@ -1,0 +1,66 @@
+/* Footer.css - Versión adaptada y mejorada */
+.footer {
+  background: #F5F6F7;
+  padding: 32px 104px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer__copyright {
+  font-size: 16px;
+  color: #B6BCBF;
+  margin: 0;
+}
+
+.footer__nav {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #1A1B22;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #2F71E5;
+}
+
+.footer__icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}
+
+.footer__icon_github {
+  background-image: url('../../images/github-icon.svg');
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px 16px;
+    text-align: center;
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer__copyright {
+    order: 2;
+    margin-top: 20px;
+  }
+}

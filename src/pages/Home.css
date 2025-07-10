@@ -1,0 +1,52 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.results-title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 40px;
+  margin: 40px 0 28px;
+  color: #1A1B22;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.no-results__icon {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 24px;
+  background-color: #F5F6F7;
+  border-radius: 50%;
+}
+
+.no-results__title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 26px;
+  margin-bottom: 16px;
+  color: #1A1B22;
+}
+
+.no-results__text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #B6BCBF;
+  max-width: 356px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .results-title {
+    font-size: 30px;
+    margin: 30px 0 20px;
+  }
+  
+  .no-results {
+    padding: 60px 0;
+  }
+}

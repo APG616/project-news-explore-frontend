@@ -1,0 +1,84 @@
+.hero {
+  background-image: url('../../images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero__title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 48px;
+  font-weight: 500;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.hero__subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0 0 40px;
+  line-height: 1.5;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 0;
+    min-height: 400px;
+  }
+  
+  .hero__title {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  
+  .hero__subtitle {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 350px;
+  }
+  
+  .hero__title {
+    font-size: 30px;
+    padding: 0 20px;
+  }
+  
+  .hero__subtitle {
+    font-size: 15px;
+    max-width: 90%;
+    padding: 0 20px;
+  }
+}

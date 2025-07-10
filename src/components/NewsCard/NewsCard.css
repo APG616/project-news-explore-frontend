@@ -1,0 +1,87 @@
+/* NewsCard.css - Versión adaptada */
+.news-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  position: relative;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  list-style: none;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-card__content {
+  padding: 16px;
+}
+
+.news-card__date {
+  font-size: 12px;
+  color: #B6BCBF;
+  margin-bottom: 8px;
+}
+
+.news-card__title {
+  font-weight: bold;
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card__text {
+  font-size: 14px;
+  color: #222;
+  margin: 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card__source {
+  font-size: 12px;
+  color: #B6BCBF;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+
+.news-card__button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.news-card__button:hover {
+  background: #f0f0f0;
+}
+
+.news-card_saved .news-card__button,
+.news-card__button_saved {
+  background: #2F71E5;
+  color: white;
+}
+
+/* Estado para artículos guardados */
+.news-card_saved {
+  border: 1px solid #2F71E5;
+}
