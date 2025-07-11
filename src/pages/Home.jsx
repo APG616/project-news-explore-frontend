@@ -128,7 +128,8 @@ function Home() {
             </Main>
 
             <About />
-            <Footer />
+                                <Footer />
+
         </div>
     );
 }

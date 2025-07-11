@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import "./SavedNews.css";
+import Footer from "../components/Footer/Footer";
 import SavedNewsCard from "../components/SavedNewsCard/SavedNewsCard";
 import SavedNewsHeader from "../components/SavedNewsHeader/SavedNewsHeader";
 
@@ -51,6 +52,7 @@ function SavedNews({ username = "Usuario", savedArticles = [], onDeleteArticle, 
           <p className="saved-news__empty">No tienes artículos guardados todavía</p>
         )}
       </section>
+      <Footer />
     </>
   );
 }

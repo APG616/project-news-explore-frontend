@@ -1,11 +1,32 @@
 /* Footer.css - Versión adaptada y mejorada */
 .footer {
   background: #F5F6F7;
-  padding: 32px 104px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 32px 0;
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer__container {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 40px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+}
+
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .footer__copyright {
@@ -39,7 +60,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  vertical-align: middle;
 }
 
 .footer__icon_github {
@@ -47,10 +67,10 @@
 }
 
 @media (max-width: 768px) {
-  .footer {
+  .footer__container {
     flex-direction: column;
     gap: 20px;
-    padding: 32px 16px;
+    padding: 0 16px;
     text-align: center;
   }
 

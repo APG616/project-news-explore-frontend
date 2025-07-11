@@ -1,19 +1,33 @@
-/* About.css - Versión adaptada y mejorada */
+/* About.css */
 .about {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #f5f6f7;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.about__container {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 40px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  background-color: #f5f6f7; /* Fondo gris claro */
+  gap: 60px;
 }
 
 .about__image {
   width: 280px;
   height: 280px;
-  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
-  margin-right: 60px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -39,13 +53,22 @@
   margin: 0 0 16px 0;
 }
 
+@media (min-width: 1024px) {
+  .about__info {
+    max-width: 1000px;
+  }
+}
+
 @media (max-width: 768px) {
   .about {
+    padding: 40px 0;
+  }
+  
+  .about__container {
     flex-direction: column;
-    gap: 32px;
-    margin: 60px auto;
-    padding: 0 16px;
     text-align: center;
+    gap: 32px;
+    padding: 0 16px;
   }
 
   .about__image {

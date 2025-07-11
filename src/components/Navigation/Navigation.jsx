@@ -8,8 +8,7 @@ const Navigation = ({ isLoggedIn, onLogout, userName, onLoginClick }) => {
     <nav className="header__nav">
       <NavLink
         to="/"
-        className={({ isActive }) => `header__nav-link ${isActive ? 'header__nav-link_active' : ''}`
-        }
+        className={({ isActive }) => `header__nav-link ${isActive ? 'header__nav-link_active active' : ''}`}
       >
         Home
       </NavLink>
@@ -17,8 +16,7 @@ const Navigation = ({ isLoggedIn, onLogout, userName, onLoginClick }) => {
         <>
           <NavLink
             to="/saved-news"
-            className={({ isActive }) => `header__nav-link ${isActive ? 'header__nav-link_active' : ''}`
-            }
+            className={({ isActive }) => `header__nav-link ${isActive ? 'header__nav-link_active active' : ''}`}
           >
             Artículos guardados
           </NavLink>
@@ -39,4 +37,4 @@ const Navigation = ({ isLoggedIn, onLogout, userName, onLoginClick }) => {
   );
 };
 
-export default Navigation; // Asegúrate de tener esta línea
+export default Navigation;

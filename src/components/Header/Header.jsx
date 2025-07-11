@@ -39,7 +39,7 @@ function Header({ isLoggedIn, onLogout, userName, onLogin, onSignup }) {
   return (
     <>
       <header className={`header ${isSavedNewsPage ? 'header_saved-news' : ''}`}>
-        <div className="header__container">
+        <div className="header__content">
           <Link to="/" className="header__logo">
             News Explorer
           </Link>

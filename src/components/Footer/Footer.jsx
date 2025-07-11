@@ -2,33 +2,24 @@ import React from 'react';
 import './Footer.css';
 
 function Footer() {
-    return (
-        <footer className="footer">
-            <p className="footer__copyright">
-                © {new Date().getFullYear()} Daniel Patiño, Powered by News API
-            </p>
-            <nav className="footer__nav" aria-label="Enlaces del pie de página">
-                <a href="/" className="footer__link">Home</a>
-                <a 
-                    href="https://practicum.yandex.com/" 
-                    className="footer__link" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                >
-                    Practicum by Yandex
-                </a>
-                <a 
-                    href="https://github.com/" 
-                    className="footer__link" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                >
-                    <span className="footer__icon footer__icon_github"></span>
-                </a>
-            </nav>
-        </footer>
-    );
+  return (
+    <footer className="footer">
+      <div className="footer__container">
+        <div className="footer__left">
+          <p className="footer__copyright">© 2023 News Explorer</p>
+        </div>
+        <nav className="footer__nav">
+          <a href="/" className="footer__link">Home</a>
+          <a href="https://practicum.com" className="footer__link">Practicum</a>
+          <a 
+            href="https://github.com" 
+            className="footer__link footer__icon footer__icon_github"
+            aria-label="GitHub"
+          ></a>
+        </nav>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;
