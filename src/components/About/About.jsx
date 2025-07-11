@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'; 
+import aboutAuthorImage from '../../../src/images/about-author.jpg';
 import './About.css';
 
 function About() {
@@ -6,7 +7,7 @@ function About() {
         <section className="about" aria-labelledby="about-heading">
             <div className="about__container">
                 <img 
-                    src={'../../../images/aboutAuthor.jpg'} 
+                    src={aboutAuthorImage} 
                     alt="Foto del autor" 
                     className="about__image" 
                 />

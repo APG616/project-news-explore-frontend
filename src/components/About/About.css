@@ -29,6 +29,9 @@
   object-fit: cover;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block; /* Asegura que se muestre como bloque */
+  background-color: #eee; /* Color de fondo temporal */
+  background-image: none !important; /* Elimina background-image si existe */
 }
 
 .about__info {
