@@ -1,4 +1,14 @@
 /* index.css*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../public/Font/Roboto/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Optional: improves performance */
+}
+
 :root {
   --color-primary: #2F71E5;
   --color-primary-hover: #1A5DCE;
@@ -11,6 +21,8 @@
   --font-main: 'Roboto', sans-serif;
   --font-heading: 'Roboto Slab', serif;
 }
+
+
 
 a {
   font-weight: 500;

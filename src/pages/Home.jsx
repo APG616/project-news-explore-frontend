@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header/Header";
 import Main from "../components/Main/Main";
 import Hero from "../components/Hero/Hero";
@@ -8,13 +8,14 @@ import About from "../components/About/About";
 import Footer from "../components/Footer/Footer";
 import "./Home.css";
 
-function Home() {
+function Home({ currentUser }) {
     const [isLoading, setIsLoading] = useState(false);
     const [articles, setArticles] = useState([]);
     const [searchKeyword, setSearchKeyword] = useState("");
     const [savedArticles, setSavedArticles] = useState([]);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [hasError, setHasError] = useState(false);
+
+    const isLoggedIn = !!currentUser;
 
     const handleSearch = async (keyword) => {
         if (!keyword.trim()) {
@@ -83,14 +84,8 @@ function Home() {
         );
     };
 
-    const toggleLogin = () => {
-        setIsLoggedIn(!isLoggedIn);
-    };
-
     return (
         <div className="page">
-            <Header isLoggedIn={isLoggedIn} onLoginToggle={toggleLogin} />
-            
             <Main>
                 <Hero onSearch={handleSearch} />
                 
@@ -111,7 +106,7 @@ function Home() {
                             articles={articles} 
                             isLoggedIn={isLoggedIn}
                             savedArticles={savedArticles}
-                            onSaveArticle={handleSearch}
+                            onSaveArticle={handleSaveArticle}
                             onDeleteArticle={handleDeleteArticle}
                             keyword={searchKeyword}
                         />
@@ -128,8 +123,7 @@ function Home() {
             </Main>
 
             <About />
-                                <Footer />
-
+            <Footer />
         </div>
     );
 }

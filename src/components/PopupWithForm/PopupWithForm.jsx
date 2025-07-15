@@ -35,11 +35,16 @@ function PopupWithForm({
         <div className={`popup ${isOpen ? 'popup_opened' : ''}`} onClick={handleOverlayClick}>
             <div className="popup__container">
                 <button 
-                    className="popup__close-button" 
-                    type="button" 
-                    onClick={onClose} 
-                    aria-label="Cerrar popup"
-                />
+                  className="popup__close-button" 
+                  type="button" 
+                  onClick={onClose} 
+                  aria-label="Cerrar popup"
+                  >
+                  <svg className="popup__close-icon" viewBox="0 0 24 24">
+                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </button>
+
                 <h2 className="popup__title">{title}</h2>
                 <form className="popup__form" onSubmit={onSubmit}>
                     {children}
@@ -60,6 +65,7 @@ function PopupWithForm({
                     </p>
                 )}
             </div>
+            
         </div>
     );
 }

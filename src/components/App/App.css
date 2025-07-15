@@ -21,6 +21,16 @@
   flex-direction: column;
 }
 
+/* En tu App.css o el archivo CSS donde definas las fuentes */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Regular.woff2') format('woff2'),
+       url('/fonts/Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

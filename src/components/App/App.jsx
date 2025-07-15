@@ -1,46 +1,20 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from '../Header/header';
-import Home from '../../pages/Home';
-import SavedNews from '../../pages/SavedNews';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppContent from './AppContent';
+import { AuthProvider } from '../../contexts/AuthContext';
 import './App.css';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState({ name: '' });
-
-  const handleLogin = (userData) => {
-    setIsLoggedIn(true);
-    setCurrentUser({ name: userData.username || 'Usuario' });
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setCurrentUser({ name: '' });
-  };
-
-  const handleSignup = (userData) => {
-    handleLogin(userData);
-  };
-
   return (
-    <Router>
-      <div className="app">
-        <Header
-          isLoggedIn={isLoggedIn}
-          onLogout={handleLogout}
-          userName={currentUser.name}
-          onLogin={handleLogin}
-          onSignup={handleSignup}
-        />
-        
-        <Routes>
-          <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
-          <Route path="/saved-news" element={<SavedNews isLoggedIn={isLoggedIn} />} />
-        </Routes>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router future={{ 
+        v7_startTransition: true,
+        v7_relativeSplatPath: true 
+      }}>
+        <AppContent />
+      </Router>
+    </AuthProvider>
   );
 }
 
-export default App;
+export default React.memo(App);
