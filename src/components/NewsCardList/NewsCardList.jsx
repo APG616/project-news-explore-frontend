@@ -6,11 +6,11 @@ function NewsCardList({ articles, isLoggedIn, savedArticles = [], onSaveArticle,
     return (
         <ul className='news-card-list'>
             {articles.map((article) => {
-                const isSaved = savedArticles.some((savedArticle) => savedArticle.url === article.url);
+                const isSaved = savedArticles.some((savedArticle) => savedArticle.id === article.id);
 
                 return (
                     <NewsCard 
-                        key={article.url || article.title} 
+                        key={article.id} 
                         article={article} 
                         isSaved={isSaved} 
                         onSave={onSaveArticle} 
@@ -23,4 +23,4 @@ function NewsCardList({ articles, isLoggedIn, savedArticles = [], onSaveArticle,
     );
 }
 
-export default NewsCardList;
+export default React.memo(NewsCardList);

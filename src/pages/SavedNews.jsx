@@ -1,52 +1,44 @@
-import React, { useMemo } from "react";
+import React from 'react';
 import "./SavedNews.css";
 import Footer from "../components/Footer/Footer";
-import SavedNewsCard from "../components/SavedNewsCard/SavedNewsCard";
+import NewsCard from "../components/NewsCard/NewsCard";
 import SavedNewsHeader from "../components/SavedNewsHeader/SavedNewsHeader";
-import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 function SavedNews({ savedArticles = [], onDeleteArticle }) {
-  const { currentUser, logout } = useAuth();
-  const navigate = useNavigate();
-  const displayName = currentUser?.username || "Usuario";
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate('/');
-      window.dispatchEvent(new Event('auth-change'));
-    } catch (error) {
-      console.error("Error en logout:", error);
-      alert('Ocurrió un error al cerrar sesión. Por favor intenta nuevamente.');
-    }
-  };
-
-  const { keywordString, keywordsCount } = useMemo(() => {
+  const { keywordString, keywordsCount } = React.useMemo(() => {
     if (savedArticles.length === 0) return { keywordString: "", keywordsCount: 0 };
     
-    const keywordSet = new Set(savedArticles.map(article => article.keyword));
-    const keywords = Array.from(keywordSet);
-    const extraCount = Math.max(keywords.length - 2, 0);
-
+    const keywordCounts = savedArticles.reduce((acc, article) => {
+      const keyword = article.keyword?.toLowerCase() || 'general';
+      acc[keyword] = (acc[keyword] || 0) + 1;
+      return acc;
+    }, {});
+    
+    const sortedKeywords = Object.entries(keywordCounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([keyword]) => keyword);
+    
+    let displayString;
+    if (sortedKeywords.length <= 3) {
+      displayString = sortedKeywords.join(', ');
+    } else {
+      displayString = `${sortedKeywords.slice(0, 2).join(', ')} y ${sortedKeywords.length - 2} más`;
+    }
+    
     return {
-      keywordString: keywords.length <= 2
-        ? keywords.join(", ")
-        : `${keywords.slice(0, 2).join(", ")} y ${extraCount} más`,
-      keywordsCount: keywords.length
+      keywordString: displayString,
+      keywordsCount: sortedKeywords.length
     };
   }, [savedArticles]);
 
   return (
     <div className="saved-news-page">
-      <SavedNewsHeader onLogout={handleLogout} />
-
       <main className="saved-news-content">
         <section className="saved-news" aria-labelledby="saved-news-title">
           <div className="saved-news__header">
             <p className="saved-news__label">Artículos guardados</p>
             <h2 id="saved-news-title" className="saved-news__title">
-              {displayName}, tienes {savedArticles.length} {savedArticles.length === 1 ? 'artículo' : 'artículos'} guardados
+              {savedArticles.length === 1 ? '1 artículo guardado' : `${savedArticles.length} artículos guardados`}
             </h2>
             {keywordsCount > 0 && (
               <p className="saved-news__keywords">
@@ -59,10 +51,12 @@ function SavedNews({ savedArticles = [], onDeleteArticle }) {
           {savedArticles.length > 0 ? (
             <ul className="saved-news__cards">
               {savedArticles.map((article) => (
-                <SavedNewsCard
-                  key={`${article.url}-${article.publishedAt}`}
+                <NewsCard
+                  key={article.id}
                   article={article}
-                  onDeleteArticle={onDeleteArticle}
+                  isSaved={true}
+                  isLoggedIn={true}
+                  onDelete={() => onDeleteArticle(article)}
                 />
               ))}
             </ul>
@@ -71,7 +65,6 @@ function SavedNews({ savedArticles = [], onDeleteArticle }) {
           )}
         </section>
       </main>
-
       <Footer />
     </div>
   );
